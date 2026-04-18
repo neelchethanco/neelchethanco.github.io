@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FSAE Chassis — Neel Chethan</title>
-  <meta name="description" content="Formula SAE steel spaceframe chassis design and structural analysis." />
+  <title>FSAE Chassis | Neel Chethan</title>
+  <meta name="description" content="Formula SAE steel spaceframe chassis design, procurement, and fabrication by Phoenix Motorsports." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -18,7 +18,7 @@
     <li><a href="../index.html">Home</a></li>
     <li><a href="../about.html">About</a></li>
     <li><a href="../index.html#projects" class="active">Projects</a></li>
-    <li><a href="../resume.pdf" target="_blank">Résumé</a></li>
+    <li><a href="../resume.pdf" target="_blank">Resume</a></li>
   </ul>
 </nav>
 
@@ -35,10 +35,10 @@
     </h1>
 
     <div class="project-meta">
-      <span class="meta-chip"><strong>Team</strong> &nbsp;Mason Motorsports</span>
-      <span class="meta-chip"><strong>Role</strong> &nbsp;Chassis Sub-team</span>
-      <span class="meta-chip"><strong>Tools</strong> &nbsp;SolidWorks · ANSYS · MATLAB</span>
-      <span class="meta-chip"><strong>Material</strong> &nbsp;4130 Chromoly Steel</span>
+      <span class="meta-chip"><strong>Team</strong> &nbsp;Phoenix Motorsports</span>
+      <span class="meta-chip"><strong>Role</strong> &nbsp;Lead Engineer</span>
+      <span class="meta-chip"><strong>Tools</strong> &nbsp;AutoCAD · Inventor · Python</span>
+      <span class="meta-chip"><strong>Material</strong> &nbsp;Steel Tube Stock</span>
     </div>
   </section>
 
@@ -50,55 +50,85 @@
 
     <h3>Overview</h3>
     <p>
-      As part of Mason Motorsports' FSAE chassis sub-team, I contributed to the structural
-      design and analysis of the team's steel spaceframe chassis. The goal was to maximize
-      torsional rigidity and minimize weight while meeting all SAE International structural
-      requirements for driver safety.
+      Designed, sourced materials for, and physically fabricated a Formula SAE steel chassis.
+      The project spanned the full engineering cycle from CAD modeling through procurement
+      to hands-on welded assembly, resulting in a complete structural frame built to FSAE constraints.
     </p>
 
-    <h3>Design Requirements</h3>
-    <ul>
-      <li>Comply with FSAE 2024 rulebook — main roll hoop, front hoop, and side impact structure geometry</li>
-      <li>Target torsional stiffness ≥ [X] N·m/deg to match suspension design targets</li>
-      <li>Minimize unsprung mass contribution without compromising rigidity</li>
-      <li>Design for in-house TIG welding and tube bending capability</li>
-    </ul>
-
-    <h3>Structural Analysis</h3>
+    <h3>Design Phase</h3>
     <p>
-      Finite element analysis was performed in ANSYS to evaluate chassis behavior under
-      torsional, bending, and impact load cases. Critical nodes were identified at
-      suspension pickup points and roll hoop junctions. Tube wall thickness and triangulation
-      geometry were iterated to eliminate stress concentrations.
+      Modeled the full chassis in Autodesk Inventor using parametric 3D CAD. Laid out the
+      space frame geometry with attention to triangulation for structural efficiency and designed
+      within Formula SAE dimensional and tubing constraints, including minimum tube sizing,
+      required triangulation, and roll hoop geometry. The design went through 11 iterations
+      before committing to fabrication.
+    </p>
+
+    <h3>Procurement</h3>
+    <p>
+      Identified all required steel tube stock and supporting materials from the CAD model.
+      Developed a full bill of materials and sourced all components, managing the entire
+      procurement process independently.
+    </p>
+
+    <h3>Fabrication and Assembly</h3>
+    <p>
+      Cut and fit steel tubing to geometry. Set up fixturing and jigging to hold frame
+      geometry during welding. MIG welded all joints, managing heat input and distortion
+      throughout assembly. Produced a complete, structurally assembled chassis.
     </p>
 
     <div class="img-placeholder">
-      [ Add FEA stress plot here ]
+      [ Add fabrication / welding photo here ]
     </div>
 
-    <h3>Key Results</h3>
+    <h3>Skills Demonstrated</h3>
+
+    <p><strong style="color: var(--text);">CAD and Structural Design</strong><br />
+    Parametric 3D modeling in Autodesk Inventor, space frame layout and triangulation logic,
+    designing to regulatory constraints, and design iteration prior to fabrication.</p>
+
+    <p><strong style="color: var(--text);">Engineering Judgment</strong><br />
+    Material selection for steel tube stock, member sizing for stiffness and weight trade-offs,
+    and understanding load distribution through triangulated structures.</p>
+
+    <p><strong style="color: var(--text);">Fabrication</strong><br />
+    MIG welding, tube cutting and fitment, fixturing for geometric accuracy, and heat distortion
+    management, a non-trivial challenge in welded tubular structures.</p>
+
+    <p><strong style="color: var(--text);">Project Execution</strong><br />
+    Bill of materials development, independent procurement, and end-to-end delivery from
+    design file to physical artifact.</p>
+
+    <h3>Relevance to Aerospace Engineering</h3>
+    <p>
+      Structural analysis is a core component of modeling and simulation work in aerospace
+      and defense, including FEA of airframes, vehicle structures, and mechanical assemblies.
+      Having physically designed and built a welded space frame provides grounded physical
+      intuition about how structures behave under load, where stress concentrations form at
+      weld joints, and how real fabricated geometry deviates from idealized CAD.
+    </p>
+    <p>
+      That intuition directly informs higher-quality simulation work: understanding what you
+      are modeling, where the model may diverge from physical reality, and what failure modes
+      are plausible. It also demonstrates the ability to close the loop between design and
+      physical reality, the same validation mindset that underlies verification and validation
+      work in modeling and simulation.
+    </p>
+
+    <h3>Tools and Technologies</h3>
     <ul>
-      <li>Achieved torsional stiffness of [X] N·m/deg — [X]% improvement over prior season</li>
-      <li>Total chassis mass: [X] kg — within target budget</li>
-      <li>All load cases passed FSAE structural equivalency requirements</li>
-      <li>[Add any competition result, test result, or design review outcome]</li>
+      <li>Autodesk Inventor (3D CAD)</li>
+      <li>Autodesk AutoCAD (2D CAD)</li>
+      <li>Python</li>
+      <li>MIG welding</li>
+      <li>Steel tube fabrication and fitting</li>
+      <li>Bill of materials and procurement</li>
     </ul>
-
-    <h3>My Contributions</h3>
-    <p>
-      [Describe your specific role — e.g., led the FEA study, modeled the main roll hoop
-      assembly, performed load case calculations, attended design reviews, etc.]
-    </p>
-
-    <h3>Lessons Learned</h3>
-    <p>
-      [Reflect on what you learned — e.g., how to balance analytical rigor with
-      manufacturing constraints, how to communicate design decisions to teammates, etc.]
-    </p>
 
   </div>
 
-  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;">
+  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
     <a href="../index.html#projects" class="btn btn-outline">← All Projects</a>
     <a href="../projects/orbital-simulator.html" class="btn btn-outline">Next Project →</a>
   </div>
