@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSAE Chassis — Neel Chethan</title>
+  <meta name="description" content="Formula SAE steel spaceframe chassis design and structural analysis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">NC</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#projects" class="active">Projects</a></li>
+    <li><a href="../resume.pdf" target="_blank">Résumé</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section class="project-hero">
+    <a href="../index.html#projects" style="color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500;">
+      ← All Projects
+    </a>
+
+    <p class="section-label" style="margin-top: 1.5rem;">Structures · Formula SAE</p>
+    <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 0.5rem;">
+      FSAE Steel Spaceframe<br /><span style="color: var(--accent2);">Chassis Design</span>
+    </h1>
+
+    <div class="project-meta">
+      <span class="meta-chip"><strong>Team</strong> &nbsp;Mason Motorsports</span>
+      <span class="meta-chip"><strong>Role</strong> &nbsp;Chassis Sub-team</span>
+      <span class="meta-chip"><strong>Tools</strong> &nbsp;SolidWorks · ANSYS · MATLAB</span>
+      <span class="meta-chip"><strong>Material</strong> &nbsp;4130 Chromoly Steel</span>
+    </div>
+  </section>
+
+  <div class="img-placeholder">
+    [ Add chassis render / photo here ]
+  </div>
+
+  <div class="project-content">
+
+    <h3>Overview</h3>
+    <p>
+      As part of Mason Motorsports' FSAE chassis sub-team, I contributed to the structural
+      design and analysis of the team's steel spaceframe chassis. The goal was to maximize
+      torsional rigidity and minimize weight while meeting all SAE International structural
+      requirements for driver safety.
+    </p>
+
+    <h3>Design Requirements</h3>
+    <ul>
+      <li>Comply with FSAE 2024 rulebook — main roll hoop, front hoop, and side impact structure geometry</li>
+      <li>Target torsional stiffness ≥ [X] N·m/deg to match suspension design targets</li>
+      <li>Minimize unsprung mass contribution without compromising rigidity</li>
+      <li>Design for in-house TIG welding and tube bending capability</li>
+    </ul>
+
+    <h3>Structural Analysis</h3>
+    <p>
+      Finite element analysis was performed in ANSYS to evaluate chassis behavior under
+      torsional, bending, and impact load cases. Critical nodes were identified at
+      suspension pickup points and roll hoop junctions. Tube wall thickness and triangulation
+      geometry were iterated to eliminate stress concentrations.
+    </p>
+
+    <div class="img-placeholder">
+      [ Add FEA stress plot here ]
+    </div>
+
+    <h3>Key Results</h3>
+    <ul>
+      <li>Achieved torsional stiffness of [X] N·m/deg — [X]% improvement over prior season</li>
+      <li>Total chassis mass: [X] kg — within target budget</li>
+      <li>All load cases passed FSAE structural equivalency requirements</li>
+      <li>[Add any competition result, test result, or design review outcome]</li>
+    </ul>
+
+    <h3>My Contributions</h3>
+    <p>
+      [Describe your specific role — e.g., led the FEA study, modeled the main roll hoop
+      assembly, performed load case calculations, attended design reviews, etc.]
+    </p>
+
+    <h3>Lessons Learned</h3>
+    <p>
+      [Reflect on what you learned — e.g., how to balance analytical rigor with
+      manufacturing constraints, how to communicate design decisions to teammates, etc.]
+    </p>
+
+  </div>
+
+  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;">
+    <a href="../index.html#projects" class="btn btn-outline">← All Projects</a>
+    <a href="../projects/orbital-simulator.html" class="btn btn-outline">Next Project →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Neel Chethan &nbsp;·&nbsp;
+     <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">Source</a>
+  </p>
+</footer>
+
+</body>
+</html>

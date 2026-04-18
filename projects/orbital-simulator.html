@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orbital Decay Simulator — Neel Chethan</title>
+  <meta name="description" content="Python orbital mechanics simulator modeling atmospheric drag, J2 perturbations, and LEO re-entry trajectories." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">NC</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#projects" class="active">Projects</a></li>
+    <li><a href="../resume.pdf" target="_blank">Résumé</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section class="project-hero">
+    <a href="../index.html#projects" style="color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500;">
+      ← All Projects
+    </a>
+
+    <p class="section-label" style="margin-top: 1.5rem;">Orbital Mechanics · Python</p>
+    <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 0.5rem;">
+      Orbital Decay<br /><span style="color: var(--accent2);">Simulator</span>
+    </h1>
+
+    <div class="project-meta">
+      <span class="meta-chip"><strong>Type</strong> &nbsp;Personal Project</span>
+      <span class="meta-chip"><strong>Tools</strong> &nbsp;Python · NumPy · SciPy · Matplotlib</span>
+      <span class="meta-chip"><strong>Domain</strong> &nbsp;Astrodynamics · LEO</span>
+      <span class="meta-chip">
+        <a href="https://github.com/neelchethanco/orbital_simulator" target="_blank" style="color: var(--accent2); text-decoration: none;">
+          GitHub →
+        </a>
+      </span>
+    </div>
+  </section>
+
+  <div class="img-placeholder">
+    [ Add orbit decay plot / GIF here ]
+  </div>
+
+  <div class="project-content">
+
+    <h3>Overview</h3>
+    <p>
+      A Python-based numerical propagator that models the orbital decay of low-Earth-orbit
+      (LEO) satellites under realistic perturbation forces. The simulator integrates the
+      equations of motion using a Runge-Kutta 4/5 scheme and outputs orbital element
+      evolution, ground track, and re-entry predictions.
+    </p>
+
+    <h3>Physics Modeled</h3>
+    <ul>
+      <li><strong>Atmospheric drag</strong> — exponential atmosphere model with ballistic coefficient input</li>
+      <li><strong>J2 perturbation</strong> — Earth oblateness effect on RAAN and argument of perigee drift</li>
+      <li><strong>Keplerian two-body</strong> — baseline propagation via RK4/5 integrator</li>
+      <li><strong>Re-entry prediction</strong> — detects perigee threshold and estimates ground impact corridor</li>
+    </ul>
+
+    <h3>Implementation</h3>
+    <p>
+      The propagator is structured as a modular Python package with separate modules for
+      physics forces, numerical integration, coordinate transforms, and visualization.
+      Orbital elements are converted to Cartesian state vectors at each step and back for
+      element extraction.
+    </p>
+
+    <div class="img-placeholder">
+      [ Add orbital elements vs. time plot here ]
+    </div>
+
+    <h3>Results</h3>
+    <ul>
+      <li>Reproduced published ISS decay rates to within [X]% under matched atmospheric conditions</li>
+      <li>Visualized RAAN drift and perigee lowering over multi-week simulation windows</li>
+      <li>Generated animated ground track and altitude-decay GIF outputs</li>
+    </ul>
+
+    <h3>Key Takeaways</h3>
+    <p>
+      This project deepened my understanding of numerical integration stability, coordinate
+      frame transforms (ECI ↔ ECEF ↔ geographic), and the outsized effect of atmospheric
+      drag variability on re-entry timing predictions.
+    </p>
+
+  </div>
+
+  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+    <a href="../projects/fsae-chassis.html" class="btn btn-outline">← FSAE Chassis</a>
+    <a href="../index.html#projects" class="btn btn-outline">All Projects →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Neel Chethan &nbsp;·&nbsp;
+     <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">Source</a>
+  </p>
+</footer>
+
+</body>
+</html>
