@@ -46,53 +46,90 @@
     </div>
   </section>
 
-  <div class="img-placeholder">
-    [ Add orbit decay plot / GIF here ]
-  </div>
-
   <div class="project-content">
 
     <h3>Overview</h3>
     <p>
-      A Python-based numerical propagator that models the orbital decay of low-Earth-orbit
-      (LEO) satellites under realistic perturbation forces. The simulator integrates the
-      equations of motion using a Runge-Kutta 4/5 scheme and outputs orbital element
-      evolution, ground track, and re-entry predictions.
+      A Python-based numerical propagator that models the orbital decay of low-Earth-orbit (LEO)
+      satellites under realistic perturbation forces. The simulator integrates the equations of
+      motion using a Runge-Kutta 4/5 scheme and outputs orbital element evolution, ground track,
+      altitude decay curves, and re-entry predictions.
     </p>
 
-    <h3>Physics Modeled</h3>
+    <h3>Objectives</h3>
     <ul>
-      <li><strong>Atmospheric drag</strong> — exponential atmosphere model with ballistic coefficient input</li>
-      <li><strong>J2 perturbation</strong> — Earth oblateness effect on RAAN and argument of perigee drift</li>
-      <li><strong>Keplerian two-body</strong> — baseline propagation via RK4/5 integrator</li>
-      <li><strong>Re-entry prediction</strong> — detects perigee threshold and estimates ground impact corridor</li>
+      <li>Model the coupled effects of atmospheric drag and J2 oblateness perturbation on LEO satellite trajectories over multi-week simulation windows.</li>
+      <li>Predict re-entry timing and ground track corridor for decaying orbits based on initial conditions and ballistic coefficient.</li>
+      <li>Build a modular, reusable propagation framework that separates physics, integration, coordinate transforms, and visualization into independent modules.</li>
     </ul>
 
-    <h3>Implementation</h3>
-    <p>
-      The propagator is structured as a modular Python package with separate modules for
-      physics forces, numerical integration, coordinate transforms, and visualization.
-      Orbital elements are converted to Cartesian state vectors at each step and back for
-      element extraction.
-    </p>
+    <h3>My Contributions</h3>
+    <ul>
+      <li>Designed and built the full simulator from scratch — physics models, integrator, coordinate transform pipeline, and all visualizations.</li>
+      <li>Implemented the exponential atmosphere drag model with configurable ballistic coefficient and the J2 oblateness perturbation analytically.</li>
+      <li>Wrote the Runge-Kutta 4/5 integrator and the orbital element ↔ Cartesian state vector conversion routines.</li>
+      <li>Generated animated GIF outputs of orbital decay, ground track evolution, and altitude vs. time plots.</li>
+    </ul>
 
-    <div class="img-placeholder">
-      [ Add orbital elements vs. time plot here ]
-    </div>
+    <h3>Methods / Approach</h3>
+    <p>
+      The propagator converts initial Keplerian orbital elements to a Cartesian state vector, then
+      numerically integrates the equations of motion forward in time using a 4th/5th-order
+      Runge-Kutta scheme. At each timestep, three force contributions are summed: the two-body
+      gravitational term, the J2 oblateness acceleration, and the atmospheric drag force computed
+      from an exponential density model. State vectors are converted back to orbital elements at
+      each output step for element tracking. Re-entry is detected when perigee altitude drops
+      below a configurable threshold.
+    </p>
+    <p>
+      The codebase is structured as a modular Python package with separate modules for physics
+      forces, numerical integration, coordinate transforms, configuration, and visualization,
+      keeping each concern isolated and independently testable.
+    </p>
 
     <h3>Results</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+      <img src="images/altitude_decay.png" alt="Altitude decay over time" style="width:100%; border-radius:8px;" />
+      <img src="images/orbital_elements.png" alt="Orbital elements evolution" style="width:100%; border-radius:8px;" />
+    </div>
+    <img src="images/simulation_summary.png" alt="Simulation summary" style="width:100%; border-radius:8px; margin-bottom: 1rem;" />
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+      <img src="images/trajectory.png" alt="3D trajectory plot" style="width:100%; border-radius:8px;" />
+      <img src="images/orbit_decay.gif" alt="Animated orbital decay" style="width:100%; border-radius:8px;" />
+    </div>
+
     <ul>
-      <li>Reproduced published ISS decay rates to within [X]% under matched atmospheric conditions</li>
-      <li>Visualized RAAN drift and perigee lowering over multi-week simulation windows</li>
-      <li>Generated animated ground track and altitude-decay GIF outputs</li>
+      <li>Produced altitude decay, RAAN drift, and perigee lowering curves over multi-week simulation windows.</li>
+      <li>Generated animated ground track and altitude-decay GIF outputs for visualization.</li>
+      <li>Modular architecture allows swapping atmosphere models or adding new perturbation forces without touching the integrator.</li>
     </ul>
 
-    <h3>Key Takeaways</h3>
+    <h3>Challenges and How I Solved Them</h3>
     <p>
-      This project deepened my understanding of numerical integration stability, coordinate
-      frame transforms (ECI ↔ ECEF ↔ geographic), and the outsized effect of atmospheric
-      drag variability on re-entry timing predictions.
+      <strong style="color: var(--text);">Coordinate frame consistency.</strong> Mixing ECI, ECEF, and geographic frames without a disciplined conversion pipeline produces subtle, hard-to-catch errors in drag direction and ground track output.
+      I solved this by isolating all frame transforms into a single coordinate module with clearly documented input/output conventions, and cross-checked outputs against known ISS orbital parameters.
     </p>
+    <p>
+      <strong style="color: var(--text);">Integration stability at low altitude.</strong> As perigee drops below ~200 km, atmospheric density rises sharply and drag acceleration spikes, causing fixed-step integrators to blow up.
+      I addressed this by tightening the RK4/5 step size adaptively near re-entry and adding a perigee detection flag to terminate propagation cleanly rather than letting the integrator diverge.
+    </p>
+
+    <h3>What I Learned</h3>
+    <ul>
+      <li>How J2 and atmospheric drag couple to drive secular drift in RAAN and argument of perigee — not just altitude decay.</li>
+      <li>The practical challenges of coordinate frame management in astrodynamics and why disciplined transform pipelines matter.</li>
+      <li>How sensitive re-entry timing is to atmospheric density uncertainty — small changes in the model produce large shifts in predicted re-entry window.</li>
+    </ul>
+
+    <h3>Tools and Technologies</h3>
+    <ul>
+      <li>Python — core language</li>
+      <li>NumPy — vector math and state vector operations</li>
+      <li>SciPy — numerical integration (RK4/5)</li>
+      <li>Matplotlib — plots, 3D trajectory visualization, and animated GIF output</li>
+      <li>Git / GitHub — version control</li>
+    </ul>
 
   </div>
 
