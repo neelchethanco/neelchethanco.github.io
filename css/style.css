@@ -288,34 +288,48 @@ h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--t
   margin: 2rem 0;
 }
 
-/* Project sub-navigation */
+/* Project sub-navigation — fixed vertical sidebar on right */
 .project-subnav {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-  margin: 1.75rem 0 2.5rem;
+  flex-direction: column;
+  gap: 0.35rem;
   padding: 0.4rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
+  z-index: 90;
 }
 
 .project-subnav a {
-  flex: 1;
-  text-align: center;
+  display: block;
   padding: 0.55rem 1rem;
   border-radius: 6px;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--muted);
   transition: all 0.2s;
-  min-width: 100px;
   white-space: nowrap;
+  text-align: center;
 }
 
 .project-subnav a:hover { background: var(--surface2); color: var(--text); }
 .project-subnav a.active { background: var(--surface2); color: var(--accent2); border: 1px solid var(--border); }
+
+@media (max-width: 900px) {
+  .project-subnav {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1.75rem 0 2.5rem;
+  }
+  .project-subnav a { flex: 1; min-width: 80px; }
+}
 
 /* Photo grid */
 .photo-grid {
