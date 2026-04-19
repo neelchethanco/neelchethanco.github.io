@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PVC Chassis V2 | FSAE | Neel Chethan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">NC</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../index.html#projects" class="active">Projects</a></li>
+    <li><a href="../resume.pdf" target="_blank">Resume</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section class="project-hero">
+    <a href="fsae-chassis.html" style="color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500;">
+      ← FSAE Chassis Program
+    </a>
+
+    <p class="section-label" style="margin-top: 1.5rem;">Structures · Formula SAE · Stage 2</p>
+    <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 0.5rem;">
+      PVC Chassis<br /><span style="color: var(--accent2);">Version 2</span>
+    </h1>
+
+    <div class="project-meta">
+      <span class="meta-chip"><strong>Type</strong> &nbsp;Refined Prototype</span>
+      <span class="meta-chip"><strong>Material</strong> &nbsp;PVC Pipe &amp; Connectors</span>
+      <span class="meta-chip"><strong>Purpose</strong> &nbsp;Design Lock &amp; Fabrication Prep</span>
+    </div>
+  </section>
+
+  <nav class="project-subnav">
+    <a href="fsae-chassis.html">Overview</a>
+    <a href="fsae-pvc-v1.html">PVC V1</a>
+    <a href="fsae-pvc-v2.html" class="active">PVC V2</a>
+    <a href="fsae-steel.html">Steel Final</a>
+  </nav>
+
+  <div class="project-content">
+
+    <h3>Overview</h3>
+    <p>
+      With the geometry issues from V1 documented and the CAD model updated accordingly,
+      Version 2 was a full rebuild of the PVC mockup incorporating every correction from
+      the first round. V2 served a dual purpose: confirming the revised geometry was sound,
+      and acting as a direct fabrication reference — each member was labeled to match the
+      cut list that would be used for the steel build.
+    </p>
+
+    <h3>Objectives</h3>
+    <ul>
+      <li>Verify that all geometry corrections from the V1 review resolved the identified issues without introducing new ones.</li>
+      <li>Lock the chassis geometry and use the physical mockup as the definitive reference for the steel cut list.</li>
+      <li>Label all members on the mockup so the transition from PVC to steel fabrication was direct and unambiguous.</li>
+    </ul>
+
+    <h3>My Contributions</h3>
+    <ul>
+      <li>Updated the Inventor CAD model with all corrections from the V1 review and generated a revised cut list.</li>
+      <li>Rebuilt the full PVC mockup from scratch incorporating the updated geometry.</li>
+      <li>Labeled every member on the physical mockup with its corresponding part number from the cut list, creating a direct bridge between the CAD model and fabrication.</li>
+      <li>Conducted a final geometry sign-off review before clearing the design for steel fabrication.</li>
+    </ul>
+
+    <h3>Methods / Approach</h3>
+    <p>
+      The V2 build followed the same process as V1 but with stricter dimensional checks at
+      each stage. After assembly, every critical dimension — frame length, width, roll hoop
+      height, front bulkhead geometry, and diagonal member angles — was verified against the
+      updated CAD model. Member labeling used a consistent numbering scheme matching the
+      Inventor assembly tree, so any member could be located in both the physical mockup and
+      the CAD simultaneously.
+    </p>
+    <p>
+      The completed V2 mockup was used as the final geometry sign-off before ordering steel
+      stock, ensuring the material order exactly matched the validated geometry.
+    </p>
+
+    <h3>Results</h3>
+
+    <div class="photo-grid">
+      <img src="images/fsae/pvc-v2-1.jpeg" alt="PVC V2 side view" />
+      <img src="images/fsae/pvc-v2-2.jpeg" alt="PVC V2 three-quarter view" />
+      <img src="images/fsae/pvc-v2-3.jpeg" alt="PVC V2 labeled members detail" />
+    </div>
+
+    <ul>
+      <li>All geometry issues identified in V1 resolved and verified in the physical mockup.</li>
+      <li>Every member labeled and cross-referenced to the cut list — fabrication could begin directly from the mockup.</li>
+      <li>Design locked and steel stock order placed following final V2 sign-off.</li>
+    </ul>
+
+    <h3>Challenges and How I Solved Them</h3>
+    <p>
+      <strong style="color: var(--text);">Carry-over errors.</strong> Correcting V1 geometry
+      in CAD and then re-building created a risk of introducing new conflicts at joints that
+      were previously fine. I mitigated this by reviewing every joint in the updated model
+      before cutting, not just the ones that were changed.
+    </p>
+    <p>
+      <strong style="color: var(--text);">Maintaining labeling consistency.</strong> With
+      dozens of members, keeping physical labels matched to the CAD part tree required a
+      deliberate system. I used a printed cut list taped to the workbench and checked off
+      each member as it was labeled and installed.
+    </p>
+
+    <h3>What I Learned</h3>
+    <ul>
+      <li>Iterating on a cheap prototype before committing to final materials is one of the highest-leverage things you can do in fabrication — V2 would have been impossible to execute as confidently without V1 first.</li>
+      <li>A physical labeled mockup is more useful as a fabrication reference than a CAD printout alone — having the actual geometry in hand removes ambiguity about angles and member lengths.</li>
+      <li>Design lock is a real discipline: once V2 was signed off, no further geometry changes were allowed, which kept fabrication on track.</li>
+    </ul>
+
+    <h3>Tools and Technologies</h3>
+    <ul>
+      <li>Autodesk Inventor — CAD updates and revised cut list generation</li>
+      <li>PVC pipe and connectors — refined full-scale prototype</li>
+      <li>Tape measure, framing square — dimensional verification</li>
+      <li>Cut list / parts tracking — member labeling and fabrication prep</li>
+    </ul>
+
+  </div>
+
+  <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+    <a href="fsae-pvc-v1.html" class="btn btn-outline">← PVC V1</a>
+    <a href="fsae-steel.html" class="btn btn-outline">Steel Final →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Neel Chethan &nbsp;·&nbsp;
+     <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">Source</a>
+  </p>
+</footer>
+
+</body>
+</html>
