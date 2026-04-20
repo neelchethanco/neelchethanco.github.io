@@ -138,6 +138,78 @@
       }
     }
 
+    function drawRocket(t) {
+      const sc = Math.min(canvas.width, canvas.height) / 700;
+      const bw = 22 * sc, bh = 90 * sc;
+      const cx = canvas.width * 0.68;
+      const cy = canvas.height * 0.48 + Math.sin(t * 0.0006) * 18;
+
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(-Math.PI / 5);
+
+      ctx.strokeStyle = 'rgba(200,215,255,0.72)';
+      ctx.fillStyle   = 'rgba(160,185,255,0.09)';
+      ctx.lineWidth   = 1.4 * sc;
+      ctx.lineJoin    = 'round';
+      ctx.lineCap     = 'round';
+
+      // Body
+      const rr = bw * 0.5;
+      ctx.beginPath();
+      ctx.moveTo(-bw/2 + rr, -bh/2);
+      ctx.lineTo( bw/2 - rr, -bh/2);
+      ctx.arcTo( bw/2, -bh/2,  bw/2, -bh/2 + rr, rr);
+      ctx.lineTo( bw/2,  bh/2 - rr);
+      ctx.arcTo( bw/2,  bh/2,  bw/2 - rr, bh/2, rr);
+      ctx.lineTo(-bw/2 + rr, bh/2);
+      ctx.arcTo(-bw/2,  bh/2, -bw/2,  bh/2 - rr, rr);
+      ctx.lineTo(-bw/2, -bh/2 + rr);
+      ctx.arcTo(-bw/2, -bh/2, -bw/2 + rr, -bh/2, rr);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Nose cone
+      ctx.beginPath();
+      ctx.moveTo(-bw/2, -bh/2);
+      ctx.lineTo(0, -bh/2 - bh * 0.3);
+      ctx.lineTo( bw/2, -bh/2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Fins
+      for (const side of [-1, 1]) {
+        ctx.beginPath();
+        ctx.moveTo(side * bw/2, bh/2 - bh * 0.2);
+        ctx.lineTo(side * (bw/2 + bw * 0.75), bh/2 + bh * 0.08);
+        ctx.lineTo(side * bw/2, bh/2);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      // Window
+      ctx.beginPath();
+      ctx.arc(0, -bh * 0.1, bw * 0.22, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Flame
+      const flicker = 0.8 + 0.2 * Math.sin(t * 0.09);
+      const fl = bh * 0.45 * flicker;
+      const g = ctx.createRadialGradient(0, bh/2 + fl*0.15, 0, 0, bh/2 + fl*0.35, fl);
+      g.addColorStop(0,    `rgba(255,190,60,${(0.55*flicker).toFixed(3)})`);
+      g.addColorStop(0.45, `rgba(255,90,20,${(0.28*flicker).toFixed(3)})`);
+      g.addColorStop(1,    'rgba(255,40,0,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.ellipse(0, bh/2 + fl*0.25, bw*0.4, fl*0.75, 0, 0, Math.PI*2);
+      ctx.fill();
+
+      ctx.restore();
+    }
+
     function draw(t) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (const s of stars) {
@@ -147,6 +219,7 @@
         ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
         ctx.fill();
       }
+      drawRocket(t);
       requestAnimationFrame(draw);
     }
 
