@@ -116,6 +116,9 @@
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let stars = [];
+    let scrollY = 0;
+
+    window.addEventListener('scroll', () => { scrollY = window.scrollY; });
 
     function resize() {
       canvas.width = window.innerWidth;
@@ -139,6 +142,8 @@
     }
 
     function drawRocket(t) {
+      const rocketAlpha = Math.max(0, 1 - scrollY / (window.innerHeight * 0.65));
+      if (rocketAlpha === 0) return;
       const sc  = Math.min(canvas.width, canvas.height) / 550;
       const bw  = 18 * sc;   // slender body width
       const bh  = 155 * sc;  // tall body
@@ -155,6 +160,7 @@
       const finRoot  =  bh * 0.20;          // fin leading-edge start on body
 
       ctx.save();
+      ctx.globalAlpha = rocketAlpha;
       ctx.translate(cx, cy);
       ctx.rotate(0);
       ctx.lineJoin = 'round';
@@ -213,15 +219,15 @@
         ctx.fill();
       }
 
-      // ── Delta fins (drawn before body so body overlaps root) ──
+      // ── Delta fins ──
       ctx.lineWidth = 1.1 * sc;
       for (const side of [-1, 1]) {
         const bodyEdge = side * bw/2;
         const grad = ctx.createLinearGradient(bodyEdge, finRoot, side*(bw/2 + bw*1.4), bodyBot);
-        grad.addColorStop(0, 'rgba(255,255,255,0.20)');
-        grad.addColorStop(1, 'rgba(255,255,255,0.07)');
+        grad.addColorStop(0, 'rgb(230,230,230)');
+        grad.addColorStop(1, 'rgb(190,190,190)');
         ctx.fillStyle   = grad;
-        ctx.strokeStyle = 'rgba(255,255,255,0.75)';
+        ctx.strokeStyle = 'rgb(255,255,255)';
         ctx.beginPath();
         ctx.moveTo(bodyEdge, finRoot);
         ctx.lineTo(side * (bw/2 + bw*1.35), bodyBot + bh*0.02);
@@ -234,11 +240,11 @@
       // ── Engine bell ──
       ctx.lineWidth = 1.2 * sc;
       const bellGrad = ctx.createLinearGradient(-bw*0.55, 0, bw*0.55, 0);
-      bellGrad.addColorStop(0,   'rgba(180,180,180,0.18)');
-      bellGrad.addColorStop(0.4, 'rgba(255,255,255,0.26)');
-      bellGrad.addColorStop(1,   'rgba(180,180,180,0.14)');
+      bellGrad.addColorStop(0,   'rgb(160,160,160)');
+      bellGrad.addColorStop(0.4, 'rgb(245,245,245)');
+      bellGrad.addColorStop(1,   'rgb(155,155,155)');
       ctx.fillStyle   = bellGrad;
-      ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+      ctx.strokeStyle = 'rgb(255,255,255)';
       ctx.beginPath();
       ctx.moveTo(-bw*0.36, bellTop);
       ctx.lineTo(-bw*0.55, bellBot);
@@ -248,15 +254,15 @@
       ctx.fill();
       ctx.stroke();
 
-      // ── Main body with cylindrical side-lighting gradient ──
+      // ── Main body ──
       ctx.lineWidth = 1.3 * sc;
       const bodyGrad = ctx.createLinearGradient(-bw/2, 0, bw/2, 0);
-      bodyGrad.addColorStop(0,    'rgba(160,160,160,0.16)');
-      bodyGrad.addColorStop(0.28, 'rgba(255,255,255,0.26)');
-      bodyGrad.addColorStop(0.65, 'rgba(220,220,220,0.18)');
-      bodyGrad.addColorStop(1,    'rgba(150,150,150,0.12)');
+      bodyGrad.addColorStop(0,    'rgb(150,150,150)');
+      bodyGrad.addColorStop(0.28, 'rgb(255,255,255)');
+      bodyGrad.addColorStop(0.65, 'rgb(215,215,215)');
+      bodyGrad.addColorStop(1,    'rgb(140,140,140)');
       ctx.fillStyle   = bodyGrad;
-      ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+      ctx.strokeStyle = 'rgb(255,255,255)';
       ctx.beginPath();
       ctx.moveTo(-bw/2, noseBase);
       ctx.lineTo( bw/2, noseBase);
@@ -266,9 +272,9 @@
       ctx.fill();
       ctx.stroke();
 
-      // Body panel line (interstage ring)
+      // Interstage panel line
       const panelY = noseBase + (bodyBot - noseBase) * 0.52;
-      ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+      ctx.strokeStyle = 'rgb(180,180,180)';
       ctx.lineWidth   = 0.9 * sc;
       ctx.beginPath();
       ctx.moveTo(-bw/2, panelY);
@@ -278,12 +284,12 @@
       // ── Ogive nose cone ──
       ctx.lineWidth = 1.3 * sc;
       const noseGrad = ctx.createLinearGradient(-bw/2, 0, bw/2, 0);
-      noseGrad.addColorStop(0,    'rgba(160,160,160,0.14)');
-      noseGrad.addColorStop(0.30, 'rgba(255,255,255,0.28)');
-      noseGrad.addColorStop(0.68, 'rgba(220,220,220,0.18)');
-      noseGrad.addColorStop(1,    'rgba(150,150,150,0.10)');
+      noseGrad.addColorStop(0,    'rgb(150,150,150)');
+      noseGrad.addColorStop(0.30, 'rgb(255,255,255)');
+      noseGrad.addColorStop(0.68, 'rgb(215,215,215)');
+      noseGrad.addColorStop(1,    'rgb(140,140,140)');
       ctx.fillStyle   = noseGrad;
-      ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+      ctx.strokeStyle = 'rgb(255,255,255)';
       ctx.beginPath();
       ctx.moveTo(-bw/2, noseBase);
       ctx.bezierCurveTo(-bw/2, noseBase - (noseBase-noseTop)*0.45,
@@ -298,15 +304,15 @@
 
       // ── Porthole window ──
       ctx.lineWidth   = 1.0 * sc;
-      ctx.strokeStyle = 'rgba(255,255,255,0.55)';
-      ctx.fillStyle   = 'rgba(255,255,255,0.07)';
+      ctx.strokeStyle = 'rgb(200,200,200)';
+      ctx.fillStyle   = 'rgb(80,80,80)';
       const winY = noseBase + (bodyBot - noseBase) * 0.18;
       ctx.beginPath();
       ctx.arc(0, winY, bw * 0.18, 0, Math.PI*2);
       ctx.fill();
       ctx.stroke();
       // glint
-      ctx.fillStyle = 'rgba(255,255,255,0.40)';
+      ctx.fillStyle = 'rgb(255,255,255)';
       ctx.beginPath();
       ctx.arc(-bw*0.05, winY - bw*0.06, bw*0.07, 0, Math.PI*2);
       ctx.fill();
