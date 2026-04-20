@@ -217,23 +217,6 @@
         ctx.fill();
       }
 
-      // ── Landing legs ──
-      for (const side of [-1, 1]) {
-        const ax = side * bw * 0.44, ay = legAtt;
-        const fx = side * bw * 3.2,  fy = nozzleY + bh*0.01;
-        ctx.strokeStyle = 'rgb(175,175,175)';
-        ctx.lineWidth   = 1.4 * sc;
-        ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(fx, fy); ctx.stroke();
-        ctx.strokeStyle = 'rgb(145,145,145)';
-        ctx.lineWidth   = 0.9 * sc;
-        ctx.beginPath(); ctx.moveTo(ax, ay - bh*0.07); ctx.lineTo(fx, fy); ctx.stroke();
-        ctx.strokeStyle = 'rgb(210,210,210)';
-        ctx.lineWidth   = 1.8 * sc;
-        ctx.beginPath();
-        ctx.moveTo(fx - side*bw*0.4, fy);
-        ctx.lineTo(fx + side*bw*0.4, fy);
-        ctx.stroke();
-      }
 
       // ── Engine section (dark octaweb) ──
       const engGrad = ctx.createLinearGradient(-bw/2, 0, bw/2, 0);
@@ -290,7 +273,7 @@
       ctx.strokeStyle = 'rgb(235,235,235)';
       ctx.lineWidth   = 1.2 * sc;
       ctx.beginPath();
-      ctx.rect(-bw/2, top + bh*0.045, bw, engTop - top - bh*0.045);
+      ctx.rect(-bw/2, top + bh*0.12, bw, engTop - top - bh*0.12);
       ctx.fill(); ctx.stroke();
 
       // Interstage black band
@@ -309,40 +292,19 @@
         }
       }
 
-      // ── Grid fins ──
-      for (const side of [-1, 1]) {
-        const gx = side * bw/2;
-        ctx.fillStyle   = 'rgb(50,50,50)';
-        ctx.strokeStyle = 'rgb(115,115,115)';
-        ctx.lineWidth   = 0.9 * sc;
-        ctx.beginPath(); ctx.rect(gx, gfTop, side * gfW, gfH); ctx.fill(); ctx.stroke();
-        ctx.strokeStyle = 'rgb(85,85,85)';
-        ctx.lineWidth   = 0.45 * sc;
-        for (let c = 1; c < 5; c++) {
-          ctx.beginPath();
-          ctx.moveTo(gx + side*gfW*c/5, gfTop);
-          ctx.lineTo(gx + side*gfW*c/5, gfTop + gfH);
-          ctx.stroke();
-        }
-        for (let r = 1; r < 4; r++) {
-          ctx.beginPath();
-          ctx.moveTo(gx, gfTop + gfH*r/4); ctx.lineTo(gx + side*gfW, gfTop + gfH*r/4);
-          ctx.stroke();
-        }
-      }
-
-      // ── Dome top (interstage cap) ──
-      const domeGrad = ctx.createLinearGradient(-bw/2, 0, bw/2, 0);
-      domeGrad.addColorStop(0,   'rgb(182,182,182)');
-      domeGrad.addColorStop(0.28,'rgb(248,248,248)');
-      domeGrad.addColorStop(0.65,'rgb(230,230,230)');
-      domeGrad.addColorStop(1,   'rgb(175,175,175)');
-      ctx.fillStyle   = domeGrad;
+      // ── Pointed ogive nose cone ──
+      const noseGrad = ctx.createLinearGradient(-bw/2, 0, bw/2, 0);
+      noseGrad.addColorStop(0,   'rgb(182,182,182)');
+      noseGrad.addColorStop(0.28,'rgb(255,255,255)');
+      noseGrad.addColorStop(0.65,'rgb(235,235,235)');
+      noseGrad.addColorStop(1,   'rgb(175,175,175)');
+      ctx.fillStyle   = noseGrad;
       ctx.strokeStyle = 'rgb(225,225,225)';
       ctx.lineWidth   = 1.2 * sc;
       ctx.beginPath();
-      ctx.moveTo(-bw/2, top + bh*0.045);
-      ctx.bezierCurveTo(-bw/2, top + bh*0.005, bw/2, top + bh*0.005, bw/2, top + bh*0.045);
+      ctx.moveTo(-bw/2, top + bh*0.12);
+      ctx.bezierCurveTo(-bw/2, top + bh*0.04, -bw*0.06, top, 0, top);
+      ctx.bezierCurveTo( bw*0.06, top,  bw/2, top + bh*0.04,  bw/2, top + bh*0.12);
       ctx.closePath(); ctx.fill(); ctx.stroke();
 
       ctx.restore();
