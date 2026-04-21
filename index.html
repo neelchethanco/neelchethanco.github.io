@@ -116,9 +116,6 @@
     const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let stars = [];
-    let scrollY = 0;
-
-    window.addEventListener('scroll', () => { scrollY = window.scrollY; });
 
     function resize() {
       canvas.width = window.innerWidth;
@@ -141,169 +138,6 @@
       }
     }
 
-    function drawRocket(t) {
-      const rocketAlpha = Math.max(0, 1 - scrollY / (window.innerHeight * 0.65));
-      if (rocketAlpha === 0) return;
-      const sc  = Math.min(canvas.width, canvas.height) / 520;
-      const bw  = 13 * sc;
-      const bh  = 200 * sc;
-      const cx  = canvas.width  * 0.70;
-      const cy  = canvas.height * 0.44 + Math.sin(t * 0.000036) * 10;
-      const top     = -bh * 0.50;
-      const engTop  =  bh * 0.355;
-      const nozzleY =  bh * 0.475;
-      const isY     =  top + bh * 0.29;
-
-      ctx.save();
-      ctx.globalAlpha = rocketAlpha;
-      ctx.translate(cx, cy);
-      ctx.lineJoin = 'round';
-      ctx.lineCap  = 'round';
-
-      // ── Engine glow (steady) ──
-      const gR = bw * 6;
-      const eg = ctx.createRadialGradient(0, nozzleY, 0, 0, nozzleY + gR*0.2, gR);
-      eg.addColorStop(0,   'rgba(255,145,35,0.30)');
-      eg.addColorStop(0.5, 'rgba(255,65,10,0.12)');
-      eg.addColorStop(1,   'rgba(255,20,0,0)');
-      ctx.fillStyle = eg;
-      ctx.beginPath();
-      ctx.ellipse(0, nozzleY + gR*0.18, gR*1.1, gR*0.65, 0, 0, Math.PI*2);
-      ctx.fill();
-
-      // ── Outer plume (steady shape) ──
-      const pH = bh * 1.05;
-      const po = ctx.createLinearGradient(0, nozzleY, 0, nozzleY + pH);
-      po.addColorStop(0,    'rgba(255,105,15,0.55)');
-      po.addColorStop(0.35, 'rgba(220,45,5,0.30)');
-      po.addColorStop(1,    'rgba(150,15,0,0)');
-      ctx.fillStyle = po;
-      ctx.beginPath();
-      ctx.moveTo(-bw*0.44, nozzleY);
-      ctx.bezierCurveTo(-bw*1.9, nozzleY+pH*0.38, -bw*0.55, nozzleY+pH*0.87, 0, nozzleY+pH);
-      ctx.bezierCurveTo( bw*0.55, nozzleY+pH*0.87,  bw*1.9, nozzleY+pH*0.38, bw*0.44, nozzleY);
-      ctx.closePath();
-      ctx.fill();
-
-      // ── Inner plume core (steady) ──
-      const cH = pH * 0.58;
-      const cW = bw * 0.34;
-      const pc = ctx.createLinearGradient(0, nozzleY, 0, nozzleY + cH);
-      pc.addColorStop(0,    'rgba(255,255,225,0.96)');
-      pc.addColorStop(0.12, 'rgba(255,215,90,0.84)');
-      pc.addColorStop(0.48, 'rgba(255,110,22,0.52)');
-      pc.addColorStop(1,    'rgba(255,50,0,0)');
-      ctx.fillStyle = pc;
-      ctx.beginPath();
-      ctx.moveTo(-cW, nozzleY);
-      ctx.bezierCurveTo(-cW*1.1, nozzleY+cH*0.34, -cW*0.26, nozzleY+cH*0.83, 0, nozzleY+cH);
-      ctx.bezierCurveTo( cW*0.26, nozzleY+cH*0.83,  cW*1.1, nozzleY+cH*0.34, cW, nozzleY);
-      ctx.closePath();
-      ctx.fill();
-
-      // ── Mach diamonds (static) ──
-      for (let i = 0; i < 5; i++) {
-        const dy = nozzleY + cH*(0.07 + i*0.15);
-        const dw = cW * (0.64 - i*0.09);
-        ctx.fillStyle = `rgba(255,248,198,${(0.62 - i*0.10).toFixed(3)})`;
-        ctx.beginPath();
-        ctx.ellipse(0, dy, dw, cH*0.04, 0, 0, Math.PI*2);
-        ctx.fill();
-      }
-
-
-      // ── Engine section (dark octaweb) ──
-      const engGrad = ctx.createLinearGradient(-bw/2, 0, bw/2, 0);
-      engGrad.addColorStop(0,   'rgb(42,42,42)');
-      engGrad.addColorStop(0.38,'rgb(88,88,88)');
-      engGrad.addColorStop(0.65,'rgb(75,75,75)');
-      engGrad.addColorStop(1,   'rgb(38,38,38)');
-      ctx.fillStyle   = engGrad;
-      ctx.strokeStyle = 'rgb(105,105,105)';
-      ctx.lineWidth   = 1.0 * sc;
-      ctx.beginPath();
-      ctx.moveTo(-bw/2, engTop);
-      ctx.lineTo(-bw*0.60, nozzleY - bh*0.03);
-      ctx.lineTo( bw*0.60, nozzleY - bh*0.03);
-      ctx.lineTo( bw/2, engTop);
-      ctx.closePath();
-      ctx.fill();
-      ctx.stroke();
-
-      // Centre Merlin nozzle
-      const nbT  = engTop + (nozzleY - engTop)*0.18;
-      const nbG  = ctx.createLinearGradient(-bw*0.26, 0, bw*0.26, 0);
-      nbG.addColorStop(0,   'rgb(55,55,55)');
-      nbG.addColorStop(0.45,'rgb(115,115,115)');
-      nbG.addColorStop(1,   'rgb(50,50,50)');
-      ctx.fillStyle   = nbG;
-      ctx.strokeStyle = 'rgb(130,130,130)';
-      ctx.lineWidth   = 0.9 * sc;
-      ctx.beginPath();
-      ctx.moveTo(-bw*0.19, nbT); ctx.lineTo(-bw*0.30, nozzleY);
-      ctx.lineTo( bw*0.30, nozzleY); ctx.lineTo( bw*0.19, nbT);
-      ctx.closePath(); ctx.fill(); ctx.stroke();
-
-      // Flanking nozzles
-      for (const side of [-1, 1]) {
-        ctx.fillStyle   = 'rgb(52,52,52)';
-        ctx.strokeStyle = 'rgb(98,98,98)';
-        ctx.lineWidth   = 0.7 * sc;
-        ctx.beginPath();
-        ctx.moveTo(side*bw*0.22, nbT + (nozzleY-nbT)*0.28);
-        ctx.lineTo(side*bw*0.46, nozzleY - bh*0.016);
-        ctx.lineTo(side*bw*0.58, nozzleY - bh*0.016);
-        ctx.lineTo(side*bw*0.36, nbT + (nozzleY-nbT)*0.28);
-        ctx.closePath(); ctx.fill(); ctx.stroke();
-      }
-
-      // ── Main body ──
-      const bodyGrad = ctx.createLinearGradient(-bw/2, 0, bw/2, 0);
-      bodyGrad.addColorStop(0,   'rgb(188,188,188)');
-      bodyGrad.addColorStop(0.24,'rgb(255,255,255)');
-      bodyGrad.addColorStop(0.62,'rgb(240,240,240)');
-      bodyGrad.addColorStop(1,   'rgb(180,180,180)');
-      ctx.fillStyle   = bodyGrad;
-      ctx.strokeStyle = 'rgb(235,235,235)';
-      ctx.lineWidth   = 1.2 * sc;
-      ctx.beginPath();
-      ctx.rect(-bw/2, top + bh*0.12, bw, engTop - top - bh*0.12);
-      ctx.fill(); ctx.stroke();
-
-      // Interstage black band
-      ctx.fillStyle = 'rgb(22,22,22)';
-      ctx.beginPath(); ctx.rect(-bw/2, isY, bw, bh*0.026); ctx.fill();
-      ctx.strokeStyle = 'rgb(70,70,70)'; ctx.lineWidth = 0.6 * sc;
-      ctx.strokeRect(-bw/2, isY, bw, bh*0.026);
-
-      // Tank weld seams
-      ctx.strokeStyle = 'rgb(205,205,205)';
-      ctx.lineWidth   = 0.45 * sc;
-      for (const f of [0.14, 0.21, 0.40, 0.50, 0.60]) {
-        const sy = top + bh * f;
-        if (sy < isY - 1 || sy > isY + bh*0.026 + 1) {
-          ctx.beginPath(); ctx.moveTo(-bw/2, sy); ctx.lineTo(bw/2, sy); ctx.stroke();
-        }
-      }
-
-      // ── Pointed ogive nose cone ──
-      const noseGrad = ctx.createLinearGradient(-bw/2, 0, bw/2, 0);
-      noseGrad.addColorStop(0,   'rgb(182,182,182)');
-      noseGrad.addColorStop(0.28,'rgb(255,255,255)');
-      noseGrad.addColorStop(0.65,'rgb(235,235,235)');
-      noseGrad.addColorStop(1,   'rgb(175,175,175)');
-      ctx.fillStyle   = noseGrad;
-      ctx.strokeStyle = 'rgb(225,225,225)';
-      ctx.lineWidth   = 1.2 * sc;
-      ctx.beginPath();
-      ctx.moveTo(-bw/2, top + bh*0.12);
-      ctx.bezierCurveTo(-bw/2, top + bh*0.04, -bw*0.06, top, 0, top);
-      ctx.bezierCurveTo( bw*0.06, top,  bw/2, top + bh*0.04,  bw/2, top + bh*0.12);
-      ctx.closePath(); ctx.fill(); ctx.stroke();
-
-      ctx.restore();
-    }
-
     function draw(t) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (const s of stars) {
@@ -313,7 +147,6 @@
         ctx.fillStyle = `rgba(255,255,255,${a.toFixed(3)})`;
         ctx.fill();
       }
-      drawRocket(t);
       requestAnimationFrame(draw);
     }
 
