@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
 </head>
 <body>
 
@@ -34,10 +34,8 @@
   </ul>
 </nav>
 
-
+<!-- Hero -->
 <main>
-
-  <!-- Hero -->
   <section class="hero">
     <p class="hero-eyebrow">Aerospace Engineer</p>
     <h1>Neel<br /><span>Chethan</span></h1>
@@ -51,65 +49,83 @@
       <a class="btn btn-outline" href="resume.pdf" target="_blank">↓ Resume</a>
     </div>
   </section>
-
-  <hr />
-
-  <!-- Projects -->
-  <section id="projects">
-    <p class="section-label">Work</p>
-    <h2>Projects</h2>
-
-    <div class="card-grid">
-
-      <div class="card">
-        <span class="card-tag">Structures</span>
-        <h3>FSAE Chassis Design</h3>
-        <p>
-          Full design, procurement, and fabrication of a Formula SAE steel spaceframe
-          chassis from CAD through welded assembly.
-        </p>
-        <br />
-        <a href="projects/fsae-chassis.html">View project →</a>
-      </div>
-
-      <div class="card">
-        <span class="card-tag">Orbital Mechanics</span>
-        <h3>Orbital Decay Simulator</h3>
-        <p>
-          Python-based propagator modeling atmospheric drag, J2 perturbations, and
-          re-entry trajectory for low-Earth-orbit satellites.
-        </p>
-        <br />
-        <a href="projects/orbital-simulator.html">View project →</a>
-      </div>
-
-    </div>
-  </section>
-
-  <hr />
-
-  <!-- Contact -->
-  <section id="contact">
-    <p class="section-label">Get in Touch</p>
-    <h2>Contact</h2>
-    <p style="color: var(--muted); max-width: 480px; margin-bottom: 1.5rem;">
-      Open to internship opportunities, research collaborations, and conversations
-      about propulsion and aerospace systems.
-    </p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="mailto:neelchethan.co@gmail.com">Email Me</a>
-      <a class="btn btn-outline" href="https://github.com/neelchethanco" target="_blank">GitHub</a>
-      <a class="btn btn-outline" href="https://linkedin.com/in/neelchethan" target="_blank">LinkedIn</a>
-    </div>
-  </section>
-
 </main>
+
+<!-- Projects showcase — full width, Palantir-style -->
+<section id="projects" class="projects-section">
+  <div class="projects-inner">
+    <p class="section-label">Work</p>
+    <div class="proj-tabs">
+      <button class="proj-tab active" data-idx="0">FSAE Chassis</button>
+      <button class="proj-tab" data-idx="1">Orbital Simulator</button>
+    </div>
+  </div>
+
+  <div class="proj-panels">
+
+    <a class="proj-panel active" href="projects/fsae-chassis.html" data-idx="0">
+      <img src="projects/images/fsae/steel-1.jpeg" alt="FSAE Steel Spaceframe Chassis" loading="lazy" />
+      <div class="proj-overlay">
+        <span class="proj-label-tag">Structures · Formula SAE</span>
+        <p class="proj-big-title">FSAE Spaceframe Chassis ↗</p>
+      </div>
+    </a>
+
+    <a class="proj-panel" href="projects/orbital-simulator.html" data-idx="1">
+      <img src="projects/images/trajectory.png" alt="Orbital Decay Simulator" loading="lazy" />
+      <div class="proj-overlay">
+        <span class="proj-label-tag">Orbital Mechanics</span>
+        <p class="proj-big-title">Orbital Decay Simulator ↗</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+  <p class="section-label">Get in Touch</p>
+  <h2>Contact</h2>
+  <p style="color: var(--muted); max-width: 480px; margin-bottom: 1.5rem;">
+    Open to internship opportunities, research collaborations, and conversations
+    about propulsion and aerospace systems.
+  </p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="mailto:neelchethan.co@gmail.com">Email Me</a>
+    <a class="btn btn-outline" href="https://github.com/neelchethanco" target="_blank">GitHub</a>
+    <a class="btn btn-outline" href="https://linkedin.com/in/neelchethan" target="_blank">LinkedIn</a>
+  </div>
+</section>
 
 <footer>
   <p>© 2026 Neel Chethan &nbsp;·&nbsp;
      <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">Source</a>
   </p>
 </footer>
+
+<script>
+  // Tab switcher
+  const tabs = document.querySelectorAll('.proj-tab');
+  const panels = document.querySelectorAll('.proj-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.proj-panel[data-idx="${tab.dataset.idx}"]`).classList.add('active');
+    });
+  });
+
+  // Background color transition on scroll into projects section
+  const projectsSection = document.getElementById('projects');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      projectsSection.classList.toggle('in-view', entry.isIntersecting);
+    });
+  }, { threshold: 0.08 });
+  observer.observe(projectsSection);
+</script>
 
 </body>
 </html>

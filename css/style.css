@@ -321,6 +321,134 @@ h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--t
   aspect-ratio: 4/3;
 }
 
+/* Projects showcase */
+.projects-section {
+  background: var(--bg);
+  transition: background 0.7s ease;
+  padding: 4rem 0 0;
+  scroll-margin-top: var(--nav-h);
+}
+
+.projects-section.in-view {
+  background: #111111;
+}
+
+.projects-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem 1.75rem;
+}
+
+.projects-section.in-view .section-label {
+  color: rgba(255,255,255,0.45);
+}
+
+/* Project tab buttons */
+.proj-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.proj-tab {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.proj-tab:hover { color: var(--text); border-color: var(--accent); }
+
+.proj-tab.active {
+  background: var(--text);
+  color: #ffffff;
+  border-color: var(--text);
+}
+
+.projects-section.in-view .proj-tab {
+  color: rgba(255,255,255,0.45);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.projects-section.in-view .proj-tab:hover {
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.5);
+}
+
+.projects-section.in-view .proj-tab.active {
+  background: #ffffff;
+  color: #111111;
+  border-color: #ffffff;
+}
+
+/* Full-bleed image panels */
+.proj-panels { width: 100%; }
+
+.proj-panel {
+  display: none;
+  width: 100%;
+  height: 78vh;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.proj-panel.active { display: block; }
+
+.proj-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.proj-panel:hover img { transform: scale(1.025); }
+
+.proj-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6rem 3rem 2.75rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+}
+
+.proj-label-tag {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 0.65rem;
+}
+
+.proj-big-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Contact section (outside <main>, needs its own container) */
+.contact-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
 /* Footer */
 footer {
   border-top: 1px solid var(--border);
