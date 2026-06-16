@@ -54,6 +54,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Fixed decorative backdrop: blueprint grid + soft red/charcoal glows */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 14% 8%, rgba(193,18,31,0.08), transparent 42%),
+    radial-gradient(circle at 90% 0%, rgba(12,12,13,0.06), transparent 46%),
+    radial-gradient(circle at 78% 88%, rgba(193,18,31,0.045), transparent 50%),
+    linear-gradient(rgba(12,12,13,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12,12,13,0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+
 ::selection { background: var(--accent); color: #fff; }
 
 img { max-width: 100%; }
@@ -68,6 +85,7 @@ nav {
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-top: 3px solid var(--accent);
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -433,13 +451,41 @@ h3 {
 
 .contact-section {
   max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 6rem clamp(1.25rem, 4vw, 2.5rem);
+  margin: 4.5rem auto;
+  padding: clamp(3.25rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
   text-align: center;
+  border-radius: var(--radius-lg);
+  background-color: var(--dark);
+  background-image:
+    radial-gradient(ellipse 70% 90% at 50% 18%, rgba(193,18,31,0.28), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 88% 100%, rgba(193,18,31,0.12), transparent 70%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
 }
-.contact-section .section-label { justify-content: center; }
+.contact-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000, transparent 75%);
+}
+.contact-section > * { position: relative; z-index: 1; }
+.contact-section h2 { color: #fff; }
+.contact-section .lead { color: rgba(255,255,255,0.72); }
+.contact-section .section-label { justify-content: center; color: var(--accent-soft); }
+.contact-section .section-label::before { background: var(--accent-soft); }
 .contact-section .hero-cta { justify-content: center; }
 .contact-section p { margin: 0 auto 1.75rem; }
+.contact-section .btn-primary { background: #fff; color: var(--dark); }
+.contact-section .btn-primary:hover { background: var(--accent); color: #fff; box-shadow: 0 10px 30px rgba(193,18,31,0.4); }
+.contact-section .btn-outline { color: #fff; border-color: rgba(255,255,255,0.3); }
+.contact-section .btn-outline:hover { color: #fff; background: rgba(255,255,255,0.08); border-color: #fff; }
 
 /* ============================================================
    About page
