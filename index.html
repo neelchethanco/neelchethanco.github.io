@@ -19,63 +19,81 @@
   <meta name="description" content="Aerospace engineering portfolio focused on space propulsion, structural analysis, and hypersonic vehicle design." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">NC</a>
+  <a class="nav-logo" href="index.html">NC<span>.</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="resume.pdf" target="_blank">Resume</a></li>
+    <li><a href="resume.pdf" target="_blank" class="nav-cta">Resume ↓</a></li>
   </ul>
 </nav>
 
 <!-- Hero -->
 <main>
   <section class="hero">
-    <p class="hero-eyebrow">Aerospace Engineer</p>
-    <h1>Neel<br /><span>Chethan</span></h1>
-    <p class="hero-bio">
-      Designing systems that push beyond the boundaries of what is known.
-      Focused on space propulsion, structural analysis, and hypersonic vehicle design.
+    <p class="hero-eyebrow reveal">Aerospace Engineer · George Mason University</p>
+    <h1 class="reveal">Neel<br /><span>Chethan</span></h1>
+    <p class="hero-bio reveal">
+      Designing systems that push beyond the boundaries of what is known —
+      space propulsion, structural analysis, and autonomous systems.
     </p>
-    <div class="hero-cta">
+    <div class="hero-cta reveal">
       <a class="btn btn-primary" href="#projects">View Projects</a>
       <a class="btn btn-outline" href="about.html">About Me</a>
       <a class="btn btn-outline" href="resume.pdf" target="_blank">↓ Resume</a>
     </div>
+    <div class="hero-meta reveal">
+      <span>Propulsion</span>
+      <span>Structures &amp; CAD</span>
+      <span>CFD / Aerodynamics</span>
+      <span>Autonomous Systems</span>
+    </div>
+    <a href="#projects" class="scroll-cue">Scroll to explore</a>
   </section>
 </main>
 
-<!-- Projects showcase — full width, Palantir-style -->
+<!-- Projects showcase — full-width, scroll-darkening -->
 <section id="projects" class="projects-section">
   <div class="projects-inner">
-    <p class="section-label">Work</p>
+    <p class="section-label">Selected Work</p>
+    <div class="proj-head">
+      <h2>Projects</h2>
+      <span class="proj-count">02 — Featured</span>
+    </div>
     <div class="proj-tabs">
       <button class="proj-tab active" data-idx="0">FSAE Chassis</button>
-      <button class="proj-tab" data-idx="1">Orbital Simulator</button>
+      <button class="proj-tab" data-idx="1">Orbital Decay Simulator</button>
     </div>
   </div>
 
   <div class="proj-panels">
 
     <a class="proj-panel active" href="projects/fsae-chassis.html" data-idx="0">
-      <img src="projects/images/fsae/steel-1.jpeg" alt="FSAE Steel Spaceframe Chassis" loading="lazy" />
+      <img src="projects/images/fsae/steel-1.jpeg" alt="FSAE steel spaceframe chassis" loading="lazy" />
       <div class="proj-overlay">
         <span class="proj-label-tag">Structures · Formula SAE</span>
-        <p class="proj-big-title">FSAE Spaceframe Chassis ↗</p>
+        <p class="proj-big-title">FSAE Spaceframe Chassis</p>
+        <p class="proj-desc">Full design, procurement, and fabrication of a Formula SAE steel spaceframe — from CAD through two PVC prototypes to a welded assembly.</p>
+        <span class="proj-cta">View project ↗</span>
       </div>
     </a>
 
     <a class="proj-panel" href="projects/orbital-simulator.html" data-idx="1">
-      <img src="projects/images/trajectory.png" alt="Orbital Decay Simulator" loading="lazy" />
+      <img src="projects/images/trajectory.png" alt="Orbital decay simulator trajectory plot" loading="lazy" />
       <div class="proj-overlay">
-        <span class="proj-label-tag">Orbital Mechanics</span>
-        <p class="proj-big-title">Orbital Decay Simulator ↗</p>
+        <span class="proj-label-tag">Orbital Mechanics · Python</span>
+        <p class="proj-big-title">Orbital Decay Simulator</p>
+        <p class="proj-desc">A numerical propagator modeling atmospheric drag, J2 perturbations, and re-entry trajectories for low-Earth-orbit satellites.</p>
+        <span class="proj-cta">View project ↗</span>
       </div>
     </a>
 
@@ -83,49 +101,46 @@
 </section>
 
 <!-- Contact -->
-<section id="contact" class="contact-section">
-  <p class="section-label">Get in Touch</p>
-  <h2>Contact</h2>
-  <p style="color: var(--muted); max-width: 480px; margin-bottom: 1.5rem;">
+<section id="contact" class="contact-section band">
+  <p class="section-label reveal">Get in Touch</p>
+  <h2 class="reveal">Let's build something.</h2>
+  <p class="lead reveal">
     Open to internship opportunities, research collaborations, and conversations
     about propulsion and aerospace systems.
   </p>
-  <div class="hero-cta">
+  <div class="hero-cta reveal">
     <a class="btn btn-primary" href="mailto:neelchethan.co@gmail.com">Email Me</a>
     <a class="btn btn-outline" href="https://github.com/neelchethanco" target="_blank">GitHub</a>
     <a class="btn btn-outline" href="https://linkedin.com/in/neelchethan" target="_blank">LinkedIn</a>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Neel Chethan &nbsp;·&nbsp;
-     <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">Source</a>
-  </p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html">Neel Chethan</a>
+      <p>Aerospace engineering student focused on propulsion, structures, and autonomous systems.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="mailto:neelchethan.co@gmail.com">Email</a>
+      <a href="https://github.com/neelchethanco" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/neelchethan" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Neel Chethan</span>
+    <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">View Source</a>
+  </div>
 </footer>
 
-<script>
-  // Tab switcher
-  const tabs = document.querySelectorAll('.proj-tab');
-  const panels = document.querySelectorAll('.proj-panel');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      panels.forEach(p => p.classList.remove('active'));
-      tab.classList.add('active');
-      document.querySelector(`.proj-panel[data-idx="${tab.dataset.idx}"]`).classList.add('active');
-    });
-  });
-
-  // Background color transition on scroll into projects section
-  const projectsSection = document.getElementById('projects');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      projectsSection.classList.toggle('in-view', entry.isIntersecting);
-    });
-  }, { threshold: 0.08 });
-  observer.observe(projectsSection);
-</script>
-
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

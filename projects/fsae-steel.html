@@ -7,31 +7,34 @@
   <title>Steel Chassis Final | FSAE | Neel Chethan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css?v=3" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css?v=5" />
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="../index.html">NC</a>
+  <a class="nav-logo" href="../index.html">NC<span>.</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../about.html">About</a></li>
     <li><a href="../index.html#projects" class="active">Projects</a></li>
-    <li><a href="../resume.pdf" target="_blank">Resume</a></li>
+    <li><a href="../resume.pdf" target="_blank" class="nav-cta">Resume ↓</a></li>
   </ul>
 </nav>
 
 <main>
 
   <section class="project-hero">
-    <a href="fsae-chassis.html" style="color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500;">
+    <a href="fsae-chassis.html" class="breadcrumb">
       ← FSAE Chassis Program
     </a>
 
     <p class="section-label" style="margin-top: 1.5rem;">Structures · Formula SAE · Stage 3</p>
-    <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 0.5rem;">
-      Steel Chassis<br /><span style="color: var(--accent2);">Final Build</span>
+    <h1>
+      Steel Chassis<br /><span style="color: var(--accent);">Final Build</span>
     </h1>
 
     <div class="project-meta">
@@ -161,18 +164,40 @@
 
   </div>
 
-  <div style="margin-top: 3rem; margin-bottom: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+  <div class="project-nav-footer" style="max-width: none;">
     <a href="fsae-pvc-v2.html" class="btn btn-outline">← PVC V2</a>
     <a href="fsae-chassis.html" class="btn btn-outline">Program Overview →</a>
   </div>
 
 </main>
 
-<footer>
-  <p>© 2026 Neel Chethan &nbsp;·&nbsp;
-     <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">Source</a>
-  </p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="../index.html">Neel Chethan</a>
+      <p>Aerospace engineering student focused on propulsion, structures, and autonomous systems.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../resume.pdf" target="_blank">Resume</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="mailto:neelchethan.co@gmail.com">Email</a>
+      <a href="https://github.com/neelchethanco" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/neelchethan" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Neel Chethan</span>
+    <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">View Source</a>
+  </div>
 </footer>
+
+<script src="../js/main.js?v=5"></script>
 
 </body>
 </html>

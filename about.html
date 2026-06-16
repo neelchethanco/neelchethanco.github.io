@@ -8,58 +8,81 @@
   <meta name="description" content="Aerospace engineering student at George Mason University, focused on space propulsion systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">NC</a>
+  <a class="nav-logo" href="index.html">NC<span>.</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="index.html#projects">Projects</a></li>
-    <li><a href="resume.pdf" target="_blank">Resume</a></li>
+    <li><a href="resume.pdf" target="_blank" class="nav-cta">Resume ↓</a></li>
   </ul>
 </nav>
 
 <main>
 
-  <section class="project-hero">
+  <!-- Page hero -->
+  <section class="page-hero">
     <p class="section-label">About Me</p>
-    <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;">
-      Pursuing a career in<br /><span style="color: var(--accent2);">propulsion and autonomous systems.</span>
-    </h1>
-
-    <p style="color: var(--muted); max-width: 580px; margin-top: 1.5rem; font-size: 1.05rem;">
-      I'm an aerospace engineering student at George Mason University with hands-on
-      experience in structures, propulsion, and systems design. My long-term goal is to
-      work on advanced propulsion, from electric thrusters to next-generation rocket engines,
-      pushing the boundaries of how far we can go.
-    </p>
+    <h1>Pursuing a career in<br /><span>propulsion &amp; autonomous systems.</span></h1>
   </section>
 
-  <hr />
+  <!-- Intro + quick facts -->
+  <section style="padding-top: 0;">
+    <div class="about-layout">
+      <div>
+        <p class="lead" style="margin-bottom: 1.25rem;">
+          I'm an aerospace engineering student at George Mason University with hands-on
+          experience in structures, propulsion, and systems design.
+        </p>
+        <p style="color: var(--text); max-width: var(--readw); margin-bottom: 1rem;">
+          My long-term goal is to work on advanced propulsion — from electric thrusters to
+          next-generation rocket engines — pushing the boundaries of how far we can go. I learn
+          fastest by building: turning a CAD model into a welded chassis, or a set of equations
+          into a working orbital simulator.
+        </p>
+        <p style="color: var(--text); max-width: var(--readw);">
+          Right now I lead aerodynamics for Mason's Formula SAE team and research decentralized
+          coordination for swarm robotics at the Mason Autonomy and Robotics Center.
+        </p>
+      </div>
 
-  <!-- Background -->
-  <section>
+      <aside class="fact-card">
+        <h4>Quick Facts</h4>
+        <div class="fact-row"><span class="k">Location</span><span class="v">Fairfax, VA</span></div>
+        <div class="fact-row"><span class="k">School</span><span class="v">George Mason Univ.</span></div>
+        <div class="fact-row"><span class="k">Degree</span><span class="v">B.S. Aerospace Eng.</span></div>
+        <div class="fact-row"><span class="k">Grad</span><span class="v">Dec 2029</span></div>
+        <div class="fact-row"><span class="k">Focus</span><span class="v">Propulsion · Structures</span></div>
+        <div class="fact-row"><span class="k">Status</span><span class="v"><span class="status-pill">Open to internships</span></span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="reveal" style="padding-bottom: 2.5rem;">
     <p class="section-label">Background</p>
-    <h2>Education &amp; Experience</h2>
-
-    <h3 style="margin-bottom: 1.25rem; margin-top: 0; color: var(--accent);">Education</h3>
-    <ul class="timeline" style="margin-bottom: 2.5rem;">
-
+    <h2>Education</h2>
+    <ul class="timeline">
       <li>
         <span class="timeline-year">Aug 2025 – Dec 2029</span>
         <p class="timeline-title">B.S. Aerospace, Aeronautical &amp; Astronautical Engineering</p>
         <p class="timeline-desc">George Mason University — Fairfax, VA</p>
       </li>
-
     </ul>
+  </section>
 
-    <h3 style="margin-bottom: 1.25rem; color: var(--accent);">Experience</h3>
+  <!-- Experience -->
+  <section class="reveal" style="padding-top: 0;">
+    <h2>Experience</h2>
     <ul class="timeline">
-
       <li>
         <span class="timeline-year">Oct 2025 – Present</span>
         <p class="timeline-title">Autonomous Systems &amp; Aerodynamics Researcher</p>
@@ -67,7 +90,6 @@
         decentralized coordination algorithms for swarm robotic systems. Analyze system behavior,
         scalability, and robustness through simulation and experimentation.</p>
       </li>
-
       <li>
         <span class="timeline-year">Oct 2025 – Present</span>
         <p class="timeline-title">Aerodynamics Team Lead</p>
@@ -75,14 +97,12 @@
         development, perform CFD analysis and aerodynamic component design, and coordinate
         with mechanical and manufacturing subteams.</p>
       </li>
-
       <li>
         <span class="timeline-year">Nov 2025 – Present</span>
         <p class="timeline-title">Member — AIAA / Aero Club</p>
         <p class="timeline-desc">George Mason University — Engage in aerospace engineering
         projects, technical workshops, and industry networking events.</p>
       </li>
-
       <li>
         <span class="timeline-year">Sep 2023 – Jun 2025</span>
         <p class="timeline-title">President &amp; Lead Engineer</p>
@@ -90,7 +110,6 @@
         student FSAE program from the ground up. Directed vehicle system design, engineering
         analysis, and cross-team integration.</p>
       </li>
-
       <li>
         <span class="timeline-year">Dec 2023 – Mar 2024</span>
         <p class="timeline-title">VASTS Aerospace Science Scholar</p>
@@ -98,7 +117,6 @@
         residential academy at NASA Langley Research Center through the Virginia Aerospace
         Science and Technology Scholars program.</p>
       </li>
-
       <li>
         <span class="timeline-year">Apr 2025 – Nov 2025</span>
         <p class="timeline-title">Order Fulfillment Associate</p>
@@ -106,42 +124,35 @@
         warehouse environment. Operated inventory management systems with strong attention
         to detail.</p>
       </li>
-
     </ul>
   </section>
 
-  <hr />
-
   <!-- Technical Skills -->
-  <section>
-    <p class="section-label">Capabilities</p>
-    <h2>Technical Skills</h2>
-
-    <div class="card-grid">
-
-      <div class="card" style="padding: 1.25rem;">
-        <span class="card-tag">Software</span>
-        <p>SolidWorks, AutoCAD, Autodesk Inventor, Fusion 360, OnShape, ANSYS, VS Code, Git, GitHub, Render, Figma</p>
+  <section class="reveal">
+    <div style="background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: clamp(1.75rem, 4vw, 2.75rem);">
+      <p class="section-label">Capabilities</p>
+      <h2>Technical Skills</h2>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag">Software</span>
+          <p>SolidWorks, AutoCAD, Autodesk Inventor, Fusion 360, OnShape, ANSYS, VS Code, Git, GitHub, Render, Figma</p>
+        </div>
+        <div class="card">
+          <span class="card-tag">Programming</span>
+          <p>Python (Pandas, NumPy, Plotly, Flask, scikit-learn), MATLAB, Java, TypeScript, HTML, LaTeX</p>
+        </div>
       </div>
-
-      <div class="card" style="padding: 1.25rem;">
-        <span class="card-tag">Programming</span>
-        <p>Python (Pandas, NumPy, Plotly, Flask, scikit-learn), MATLAB, Java, TypeScript, HTML, LaTeX</p>
-      </div>
-
     </div>
   </section>
 
-  <hr />
-
   <!-- Goals -->
-  <section>
+  <section class="reveal">
     <p class="section-label">Looking Ahead</p>
     <h2>Goals</h2>
-    <p style="color: var(--muted); max-width: 620px; margin-bottom: 2rem; font-size: 1.05rem;">
+    <p class="lead" style="margin-bottom: 2rem;">
       My aim is to contribute to propulsion R&amp;D at organizations pushing the frontier
-      of space access, whether that is electric propulsion for small satellites, high-thrust
-      liquid engines for deep-space missions, or hypersonic air-breathing systems. I am
+      of space access — whether that's electric propulsion for small satellites, high-thrust
+      liquid engines for deep-space missions, or hypersonic air-breathing systems. I'm
       actively seeking internship roles in propulsion engineering, structures, or GN&amp;C.
     </p>
     <div class="hero-cta">
@@ -152,11 +163,32 @@
 
 </main>
 
-<footer>
-  <p>© 2026 Neel Chethan &nbsp;·&nbsp;
-     <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">Source</a>
-  </p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html">Neel Chethan</a>
+      <p>Aerospace engineering student focused on propulsion, structures, and autonomous systems.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="resume.pdf" target="_blank">Resume</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="mailto:neelchethan.co@gmail.com">Email</a>
+      <a href="https://github.com/neelchethanco" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/neelchethan" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Neel Chethan</span>
+    <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">View Source</a>
+  </div>
 </footer>
 
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

@@ -4,36 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
-  <title>FSAE Chassis | Neel Chethan</title>
+  <title>FSAE Spaceframe Chassis | Neel Chethan</title>
+  <meta name="description" content="Design, prototyping, and fabrication of a Formula SAE steel spaceframe chassis — from CAD through two PVC mockups to a welded final build." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/style.css?v=3" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css?v=5" />
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="../index.html">NC</a>
+  <a class="nav-logo" href="../index.html">NC<span>.</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../about.html">About</a></li>
     <li><a href="../index.html#projects" class="active">Projects</a></li>
-    <li><a href="../resume.pdf" target="_blank">Resume</a></li>
+    <li><a href="../resume.pdf" target="_blank" class="nav-cta">Resume ↓</a></li>
   </ul>
 </nav>
 
 <main>
 
   <section class="project-hero">
-    <a href="../index.html#projects" style="color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500;">
-      ← All Projects
-    </a>
-
-    <p class="section-label" style="margin-top: 1.5rem;">Structures · Formula SAE</p>
-    <h1 style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-top: 0.5rem;">
-      Formula SAE<br /><span style="color: var(--accent2);">Spaceframe Chassis</span>
-    </h1>
-
+    <a href="../index.html#projects" class="breadcrumb">← All Projects</a>
+    <p class="section-label" style="margin-top: 1.25rem;">Structures · Formula SAE</p>
+    <h1>Formula SAE<br /><span>Spaceframe Chassis</span></h1>
     <div class="project-meta">
       <span class="meta-chip"><strong>Team</strong> &nbsp;Phoenix Motorsports</span>
       <span class="meta-chip"><strong>Role</strong> &nbsp;President &amp; Lead Engineer</span>
@@ -42,7 +40,6 @@
   </section>
 
   <div class="project-content">
-
     <h3>Program Overview</h3>
     <p>
       As co-founder and President of Phoenix Motorsports, I led the full chassis development
@@ -56,67 +53,87 @@
     <p style="color: var(--muted); margin-bottom: 2rem;">
       Select a stage below to see the detailed breakdown — objectives, contributions, methods, results, and lessons learned.
     </p>
+  </div>
 
-    <div class="card-grid" style="gap: 1.5rem;">
+  <div class="card-grid" style="gap: 1.5rem;">
 
-      <div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
-        <img src="images/fsae/pvc-v1-1.jpeg" alt="PVC Chassis V1"
-          style="width:100%; border-radius:8px; aspect-ratio:4/3; object-fit:cover;" />
-        <div>
-          <span class="card-tag">Stage 1</span>
-          <h3 style="margin-top: 0.5rem;">PVC Chassis V1</h3>
-          <p>First full-scale physical mockup. Built in PVC to verify CAD geometry, check proportions,
-          and identify fitment problems before committing to steel.</p>
-        </div>
-        <a href="fsae-pvc-v1.html" class="btn btn-outline" style="margin-top: auto; text-align: center;">
-          View Stage 1 →
-        </a>
+    <div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+      <img src="images/fsae/pvc-v1-1.jpeg" alt="PVC Chassis V1"
+        style="width:100%; border-radius:10px; aspect-ratio:4/3; object-fit:cover;" />
+      <div>
+        <span class="card-tag">Stage 1</span>
+        <h3 style="margin-top: 0.5rem; border: none; padding: 0;">PVC Chassis V1</h3>
+        <p>First full-scale physical mockup. Built in PVC to verify CAD geometry, check proportions,
+        and identify fitment problems before committing to steel.</p>
       </div>
+      <a href="fsae-pvc-v1.html" class="btn btn-outline" style="margin-top: auto; justify-content: center;">
+        View Stage 1 →
+      </a>
+    </div>
 
-      <div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
-        <img src="images/fsae/pvc-v2-1.jpeg" alt="PVC Chassis V2"
-          style="width:100%; border-radius:8px; aspect-ratio:4/3; object-fit:cover;" />
-        <div>
-          <span class="card-tag">Stage 2</span>
-          <h3 style="margin-top: 0.5rem;">PVC Chassis V2</h3>
-          <p>Refined mockup incorporating lessons from V1. Geometry updates, improved joint layout,
-          and member labeling to prepare for direct translation to steel fabrication.</p>
-        </div>
-        <a href="fsae-pvc-v2.html" class="btn btn-outline" style="margin-top: auto; text-align: center;">
-          View Stage 2 →
-        </a>
+    <div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+      <img src="images/fsae/pvc-v2-1.jpeg" alt="PVC Chassis V2"
+        style="width:100%; border-radius:10px; aspect-ratio:4/3; object-fit:cover;" />
+      <div>
+        <span class="card-tag">Stage 2</span>
+        <h3 style="margin-top: 0.5rem; border: none; padding: 0;">PVC Chassis V2</h3>
+        <p>Refined mockup incorporating lessons from V1. Geometry updates, improved joint layout,
+        and member labeling to prepare for direct translation to steel fabrication.</p>
       </div>
+      <a href="fsae-pvc-v2.html" class="btn btn-outline" style="margin-top: auto; justify-content: center;">
+        View Stage 2 →
+      </a>
+    </div>
 
-      <div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
-        <img src="images/fsae/steel-1.jpeg" alt="Steel Chassis Final"
-          style="width:100%; border-radius:8px; aspect-ratio:4/3; object-fit:cover;" />
-        <div>
-          <span class="card-tag">Stage 3</span>
-          <h3 style="margin-top: 0.5rem;">Steel Chassis Final</h3>
-          <p>The finished product. Steel tube stock cut and MIG welded into a competition-ready
-          FSAE spaceframe, informed by every lesson from the two PVC prototypes before it.</p>
-        </div>
-        <a href="fsae-steel.html" class="btn btn-outline" style="margin-top: auto; text-align: center;">
-          View Final Build →
-        </a>
+    <div class="card" style="display: flex; flex-direction: column; gap: 1rem;">
+      <img src="images/fsae/steel-1.jpeg" alt="Steel Chassis Final"
+        style="width:100%; border-radius:10px; aspect-ratio:4/3; object-fit:cover;" />
+      <div>
+        <span class="card-tag">Stage 3</span>
+        <h3 style="margin-top: 0.5rem; border: none; padding: 0;">Steel Chassis Final</h3>
+        <p>The finished product. Steel tube stock cut and MIG welded into a competition-ready
+        FSAE spaceframe, informed by every lesson from the two PVC prototypes before it.</p>
       </div>
-
+      <a href="fsae-steel.html" class="btn btn-outline" style="margin-top: auto; justify-content: center;">
+        View Final Build →
+      </a>
     </div>
 
   </div>
 
-  <div style="margin-top: 3rem; margin-bottom: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+  <div class="project-nav-footer" style="max-width: none;">
     <a href="../index.html#projects" class="btn btn-outline">← All Projects</a>
     <a href="../projects/orbital-simulator.html" class="btn btn-outline">Next Project →</a>
   </div>
 
 </main>
 
-<footer>
-  <p>© 2026 Neel Chethan &nbsp;·&nbsp;
-     <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">Source</a>
-  </p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-logo" href="../index.html">Neel Chethan</a>
+      <p>Aerospace engineering student focused on propulsion, structures, and autonomous systems.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../resume.pdf" target="_blank">Resume</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="mailto:neelchethan.co@gmail.com">Email</a>
+      <a href="https://github.com/neelchethanco" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/neelchethan" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Neel Chethan</span>
+    <a href="https://github.com/neelchethanco/neelchethanco.github.io" target="_blank">View Source</a>
+  </div>
 </footer>
 
+<script src="../js/main.js?v=5"></script>
 </body>
 </html>
