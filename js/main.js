@@ -35,29 +35,4 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
-
-  /* ---- Projects showcase: tabs + scroll background (home only) ---- */
-  var tabs = document.querySelectorAll('.proj-tab');
-  var panels = document.querySelectorAll('.proj-panel');
-  if (tabs.length && panels.length) {
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('active'); });
-        panels.forEach(function (p) { p.classList.remove('active'); });
-        tab.classList.add('active');
-        var panel = document.querySelector('.proj-panel[data-idx="' + tab.dataset.idx + '"]');
-        if (panel) panel.classList.add('active');
-      });
-    });
-  }
-
-  var projectsSection = document.getElementById('projects');
-  if (projectsSection && projectsSection.classList.contains('projects-section') && 'IntersectionObserver' in window) {
-    var bgObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        projectsSection.classList.toggle('in-view', e.isIntersecting);
-      });
-    }, { threshold: 0.08 });
-    bgObs.observe(projectsSection);
-  }
 })();
