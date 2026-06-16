@@ -341,7 +341,7 @@ h3 {
 .projects-section {
   background: var(--bg);
   transition: background 0.7s ease;
-  padding: 5rem 0 0;
+  padding: 5rem 0;
   scroll-margin-top: var(--nav-h);
 }
 .projects-section.in-view { background: var(--dark); }
@@ -349,7 +349,7 @@ h3 {
 .projects-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 2.5rem) 2rem;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
 }
 
 .projects-section.in-view .section-label { color: var(--accent-soft); }
@@ -361,94 +361,70 @@ h3 {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 .proj-head h2 { margin-bottom: 0; }
 .projects-section.in-view .proj-head h2 { color: #fff; }
 .proj-count { font-family: var(--font-display); font-size: 0.85rem; color: var(--faint); font-weight: 500; }
 .projects-section.in-view .proj-count { color: rgba(255,255,255,0.5); }
 
-.proj-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
-.proj-tab {
-  padding: 0.5rem 1.15rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-strong);
-  background: transparent;
-  color: var(--muted);
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
+/* Compact project card grid */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
-.proj-tab:hover { color: var(--ink); border-color: var(--ink); }
-.proj-tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-.projects-section.in-view .proj-tab { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.18); }
-.projects-section.in-view .proj-tab:hover { color: #fff; border-color: rgba(255,255,255,0.6); }
-.projects-section.in-view .proj-tab.active { background: #fff; color: var(--dark); border-color: #fff; }
-
-.proj-panels { width: 100%; }
-
-.proj-panel {
-  display: none;
-  width: 100%;
-  height: 80vh;
-  min-height: 520px;
-  position: relative;
+.proj-card {
+  display: flex;
+  flex-direction: column;
+  background: #16161b;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
   overflow: hidden;
   text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.proj-panel.active { display: block; animation: fadePanel 0.5s ease; }
-@keyframes fadePanel { from { opacity: 0; } to { opacity: 1; } }
+.proj-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.22);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.45);
+}
 
-.proj-panel img {
+.proj-card-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0c0c0f;
+}
+.proj-card-img img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.8s cubic-bezier(0.2,0.8,0.2,1);
+  transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1);
 }
-.proj-panel:hover img { transform: scale(1.04); }
+.proj-card:hover .proj-card-img img { transform: scale(1.05); }
 
-.proj-overlay {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 7rem clamp(1.5rem, 5vw, 4rem) 3rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 55%, transparent 100%);
-}
-.proj-label-tag {
-  display: block;
+.proj-card-body { padding: 1.5rem 1.6rem 1.75rem; }
+.proj-card-tag {
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 600;
-  color: rgba(255,255,255,0.78);
-  margin-bottom: 0.7rem;
+  color: var(--accent-soft);
 }
-.proj-big-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.9rem, 4.5vw, 3.25rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  color: #fff;
-  margin: 0 0 0.6rem;
-  max-width: 16ch;
-}
-.proj-desc { color: rgba(255,255,255,0.72); max-width: 52ch; font-size: 0.98rem; }
-.proj-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.proj-card-body h3 { color: #fff; margin: 0.65rem 0 0.5rem; font-size: 1.35rem; }
+.proj-card-body p { color: rgba(255,255,255,0.62); font-size: 0.95rem; }
+.proj-card-cta {
+  display: inline-block;
   margin-top: 1.1rem;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: #fff;
+  transition: color 0.2s;
 }
-.proj-panel:hover .proj-cta { color: var(--accent-soft); }
+.proj-card:hover .proj-card-cta { color: var(--accent-soft); }
 
 /* ============================================================
    Generic section on tinted background
@@ -771,9 +747,6 @@ hr { border: none; border-top: 1px solid var(--border); margin: 0; }
   .nav-links a { display: block; padding: 0.85rem 0; width: 100%; font-size: 1rem; }
   .nav-links a:not(.nav-cta)::after { display: none; }
   .nav-cta { display: inline-block; margin-top: 0.5rem; }
-
-  .proj-panel { height: 65vh; min-height: 420px; }
-  .proj-overlay { padding: 5rem 1.5rem 2rem; }
 }
 
 @media (max-width: 480px) {

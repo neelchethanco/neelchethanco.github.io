@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=6" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
 </head>
 <body>
 
@@ -61,7 +61,7 @@
   </section>
 </main>
 
-<!-- Projects showcase: full-width, scroll-darkening -->
+<!-- Projects showcase: compact card grid, scroll-darkening -->
 <section id="projects" class="projects-section">
   <div class="projects-inner">
     <p class="section-label">Selected Work</p>
@@ -69,34 +69,33 @@
       <h2>Projects</h2>
       <span class="proj-count">02 · Featured</span>
     </div>
-    <div class="proj-tabs">
-      <button class="proj-tab active" data-idx="0">FSAE Chassis</button>
-      <button class="proj-tab" data-idx="1">Orbital Decay Simulator</button>
+    <div class="proj-grid">
+
+      <a class="proj-card" href="projects/fsae-chassis.html">
+        <div class="proj-card-img">
+          <img src="projects/images/umd-fsae-car.png" alt="UMD Formula SAE car" loading="lazy" />
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-tag">Structures · Formula SAE</span>
+          <h3>FSAE Spaceframe Chassis</h3>
+          <p>Full design, procurement, and fabrication of a Formula SAE steel spaceframe, from CAD through two PVC prototypes to a welded assembly.</p>
+          <span class="proj-card-cta">View project ↗</span>
+        </div>
+      </a>
+
+      <a class="proj-card" href="projects/orbital-simulator.html">
+        <div class="proj-card-img">
+          <img src="projects/images/trajectory.png" alt="Orbital decay simulator trajectory plot" loading="lazy" />
+        </div>
+        <div class="proj-card-body">
+          <span class="proj-card-tag">Orbital Mechanics · Python</span>
+          <h3>Orbital Decay Simulator</h3>
+          <p>A numerical propagator modeling atmospheric drag, J2 perturbations, and re-entry trajectories for low-Earth-orbit satellites.</p>
+          <span class="proj-card-cta">View project ↗</span>
+        </div>
+      </a>
+
     </div>
-  </div>
-
-  <div class="proj-panels">
-
-    <a class="proj-panel active" href="projects/fsae-chassis.html" data-idx="0">
-      <img src="projects/images/fsae/steel-1.jpeg" alt="FSAE steel spaceframe chassis" loading="lazy" />
-      <div class="proj-overlay">
-        <span class="proj-label-tag">Structures · Formula SAE</span>
-        <p class="proj-big-title">FSAE Spaceframe Chassis</p>
-        <p class="proj-desc">Full design, procurement, and fabrication of a Formula SAE steel spaceframe, from CAD through two PVC prototypes to a welded assembly.</p>
-        <span class="proj-cta">View project ↗</span>
-      </div>
-    </a>
-
-    <a class="proj-panel" href="projects/orbital-simulator.html" data-idx="1">
-      <img src="projects/images/trajectory.png" alt="Orbital decay simulator trajectory plot" loading="lazy" />
-      <div class="proj-overlay">
-        <span class="proj-label-tag">Orbital Mechanics · Python</span>
-        <p class="proj-big-title">Orbital Decay Simulator</p>
-        <p class="proj-desc">A numerical propagator modeling atmospheric drag, J2 perturbations, and re-entry trajectories for low-Earth-orbit satellites.</p>
-        <span class="proj-cta">View project ↗</span>
-      </div>
-    </a>
-
   </div>
 </section>
 
